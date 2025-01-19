@@ -1,0 +1,347 @@
+
+════════ Exception caught by rendering library ═════════════════════════════════
+The following assertion was thrown during performLayout():
+RenderFlex children have non-zero flex but incoming height constraints are unbounded.
+When a column is in a parent that does not provide a finite height constraint, for example if it is in a vertical scrollable, it will try to shrink-wrap its children along the vertical axis. Setting a flex on a child (e.g. using Expanded) indicates that the child is to expand to fill the remaining space in the vertical direction.
+These two directives are mutually exclusive. If a parent is to shrink-wrap its child, the child cannot simultaneously expand to fit its parent.
+Consider setting mainAxisSize to MainAxisSize.min and using FlexFit.loose fits for the flexible children (using Flexible rather than Expanded). This will allow the flexible children to size themselves to less than the infinite remaining space they would otherwise be forced to take, and then will cause the RenderFlex to shrink-wrap the children rather than expanding to fit the maximum constraints provided by the parent.
+If this message did not help you determine the problem, consider using debugDumpRenderTree():
+  https://flutter.dev/to/debug-render-layer
+  https://api.flutter.dev/flutter/rendering/debugDumpRenderTree.html
+The affected RenderFlex is: RenderFlex#2467f relayoutBoundary=up10 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+    parentData: offset=Offset(0.0, 0.0); flex=null; fit=null (can use size)
+    constraints: BoxConstraints(0.0<=w<=330.0, 0.0<=h<=Infinity)
+    size: MISSING
+    direction: vertical
+    mainAxisAlignment: start
+    mainAxisSize: max
+    crossAxisAlignment: start
+    textDirection: ltr
+    verticalDirection: down
+    child 1: RenderConstrainedBox#720d7 NEEDS-LAYOUT NEEDS-PAINT
+        parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+        constraints: MISSING
+        size: MISSING
+        additionalConstraints: BoxConstraints(0.0<=w<=Infinity, h=20.0)
+    child 2: RenderParagraph#87946 NEEDS-LAYOUT NEEDS-PAINT
+        parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+        constraints: MISSING
+        size: MISSING
+        textAlign: start
+        textDirection: ltr
+        softWrap: wrapping at box width
+        overflow: clip
+        textScaler: linear (1.1176470588235294x)
+        locale: en_US
+        maxLines: unlimited
+        text: TextSpan
+            debugLabel: ((englishLike bodyMedium 2021).merge((blackCupertino bodyMedium).apply)).merge(unknown)
+            inherit: false
+            color: Color(0xff1d1b20)
+            family: CupertinoSystemText
+            size: 24.0
+            weight: 600
+            letterSpacing: 0.3
+            baseline: alphabetic
+            height: 1.4x
+            leadingDistribution: even
+            decoration: Color(0xff1d1b20) TextDecoration.none
+            "Poplar Movies"
+    child 3: RenderConstrainedBox#b96b3 NEEDS-LAYOUT NEEDS-PAINT
+        parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+        constraints: MISSING
+        size: MISSING
+        additionalConstraints: BoxConstraints(0.0<=w<=Infinity, h=20.0)
+    child 4: _RenderScrollSemantics#138bb NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+        parentData: offset=Offset(0.0, 0.0); flex=1; fit=FlexFit.loose
+        constraints: MISSING
+        semantic boundary
+        size: MISSING
+        child: RenderPointerListener#82921 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+            parentData: <none>
+            constraints: MISSING
+            size: MISSING
+            behavior: deferToChild
+            listeners: signal
+            child: RenderSemanticsGestureHandler#88630 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+                parentData: <none>
+                constraints: MISSING
+                size: MISSING
+                behavior: opaque
+                gestures: <none>
+                child: RenderPointerListener#94a72 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+                    parentData: <none>
+                    constraints: MISSING
+                    size: MISSING
+                    behavior: opaque
+                    listeners: down, panZoomStart
+The creator information is set to: Column ← FutureBuilder<List<MovieModel>> ← Column ← Padding ← _SingleChildViewport ← IgnorePointer-[GlobalKey#e3b98] ← Semantics ← Listener ← _GestureSemantics ← RawGestureDetector-[LabeledGlobalKey<RawGestureDetectorState>#99baa] ← Listener ← _ScrollableScope ← ⋯
+The nearest ancestor providing an unbounded width constraint is: _RenderSingleChildViewport#76752 relayoutBoundary=up7 NEEDS-LAYOUT
+    needs compositing
+    parentData: <none> (can use size)
+    constraints: BoxConstraints(0.0<=w<=430.0, 0.0<=h<=817.0)
+    layer: OffsetLayer#72be2
+        engine layer: OffsetEngineLayer#35479
+        handles: 2
+        offset: Offset(0.0, 115.0)
+    size: Size(114.7, 122.0)
+    offset: Offset(0.0, -0.0)
+    child: RenderPadding#70b06 relayoutBoundary=up8 NEEDS-LAYOUT NEEDS-COMPOSITING-BITS-UPDATE
+        parentData: <none> (can use size)
+        constraints: BoxConstraints(0.0<=w<=430.0, 0.0<=h<=Infinity)
+        size: Size(114.7, 122.0)
+        padding: EdgeInsets.all(50.0)
+        textDirection: ltr
+        child: RenderFlex#b947b relayoutBoundary=up9 NEEDS-LAYOUT NEEDS-COMPOSITING-BITS-UPDATE
+            parentData: offset=Offset(50.0, 50.0) (can use size)
+            constraints: BoxConstraints(0.0<=w<=330.0, 0.0<=h<=Infinity)
+            size: Size(14.7, 22.0)
+            direction: vertical
+            mainAxisAlignment: start
+            mainAxisSize: max
+            crossAxisAlignment: center
+            verticalDirection: down
+            child 1: RenderFlex#2467f relayoutBoundary=up10 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+                parentData: offset=Offset(0.0, 0.0); flex=null; fit=null (can use size)
+                constraints: BoxConstraints(0.0<=w<=330.0, 0.0<=h<=Infinity)
+                size: MISSING
+                direction: vertical
+                mainAxisAlignment: start
+                mainAxisSize: max
+                crossAxisAlignment: start
+                textDirection: ltr
+                verticalDirection: down
+                child 1: RenderConstrainedBox#720d7 NEEDS-LAYOUT NEEDS-PAINT
+                    parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+                    constraints: MISSING
+                    size: MISSING
+                    additionalConstraints: BoxConstraints(0.0<=w<=Infinity, h=20.0)
+                child 2: RenderParagraph#87946 NEEDS-LAYOUT NEEDS-PAINT
+                    parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+                    constraints: MISSING
+                    size: MISSING
+                    textAlign: start
+                    textDirection: ltr
+                    softWrap: wrapping at box width
+                    overflow: clip
+                    textScaler: linear (1.1176470588235294x)
+                    locale: en_US
+                    maxLines: unlimited
+                child 3: RenderConstrainedBox#b96b3 NEEDS-LAYOUT NEEDS-PAINT
+                    parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+                    constraints: MISSING
+                    size: MISSING
+                    additionalConstraints: BoxConstraints(0.0<=w<=Infinity, h=20.0)
+                child 4: _RenderScrollSemantics#138bb NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+                    parentData: offset=Offset(0.0, 0.0); flex=1; fit=FlexFit.loose
+                    constraints: MISSING
+                    semantic boundary
+                    size: MISSING
+See also: https://flutter.dev/unbounded-constraints
+If none of the above helps enough to fix this problem, please don't hesitate to file a bug:
+  https://github.com/flutter/flutter/issues/new?template=2_bug.yml
+
+The relevant error-causing widget was:
+    Column Column:file:///Users/eunjuseo/Documents/GitHub/movieflix2025/lib/screen/home_screen.dart:30:26
+
+When the exception was thrown, this was the stack:
+#0      RenderFlex.performLayout.<anonymous closure> (package:flutter/src/rendering/flex.dart:1046:9)
+#1      RenderFlex.performLayout (package:flutter/src/rendering/flex.dart:1049:6)
+#2      RenderObject.layout (package:flutter/src/rendering/object.dart:2608:7)
+#3      ChildLayoutHelper.layoutChild (package:flutter/src/rendering/layout_helper.dart:61:11)
+#4      RenderFlex._computeSizes (package:flutter/src/rendering/flex.dart:985:73)
+#5      RenderFlex.performLayout (package:flutter/src/rendering/flex.dart:1051:32)
+#6      RenderObject.layout (package:flutter/src/rendering/object.dart:2608:7)
+#7      RenderPadding.performLayout (package:flutter/src/rendering/shifted_box.dart:234:12)
+#8      RenderObject.layout (package:flutter/src/rendering/object.dart:2608:7)
+#9      _RenderSingleChildViewport.performLayout (package:flutter/src/widgets/single_child_scroll_view.dart:483:14)
+#10     RenderObject.layout (package:flutter/src/rendering/object.dart:2608:7)
+#11     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:111:21)
+#12     RenderObject.layout (package:flutter/src/rendering/object.dart:2608:7)
+#13     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:111:21)
+#14     RenderObject.layout (package:flutter/src/rendering/object.dart:2608:7)
+#15     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:111:21)
+#16     RenderObject.layout (package:flutter/src/rendering/object.dart:2608:7)
+#17     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:111:21)
+#18     RenderObject.layout (package:flutter/src/rendering/object.dart:2608:7)
+#19     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:111:21)
+#20     RenderObject.layout (package:flutter/src/rendering/object.dart:2608:7)
+#21     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:111:21)
+#22     RenderObject.layout (package:flutter/src/rendering/object.dart:2608:7)
+#23     MultiChildLayoutDelegate.layoutChild (package:flutter/src/rendering/custom_layout.dart:173:12)
+#24     _ScaffoldLayout.performLayout (package:flutter/src/material/scaffold.dart:1092:7)
+#25     MultiChildLayoutDelegate._callPerformLayout (package:flutter/src/rendering/custom_layout.dart:237:7)
+#26     RenderCustomMultiChildLayoutBox.performLayout (package:flutter/src/rendering/custom_layout.dart:404:14)
+#27     RenderObject._layoutWithoutResize (package:flutter/src/rendering/object.dart:2446:7)
+#28     PipelineOwner.flushLayout (package:flutter/src/rendering/object.dart:1052:18)
+#29     PipelineOwner.flushLayout (package:flutter/src/rendering/object.dart:1065:15)
+#30     RendererBinding.drawFrame (package:flutter/src/rendering/binding.dart:602:23)
+#31     WidgetsBinding.drawFrame (package:flutter/src/widgets/binding.dart:1164:13)
+#32     RendererBinding._handlePersistentFrameCallback (package:flutter/src/rendering/binding.dart:468:5)
+#33     SchedulerBinding._invokeFrameCallback (package:flutter/src/scheduler/binding.dart:1397:15)
+#34     SchedulerBinding.handleDrawFrame (package:flutter/src/scheduler/binding.dart:1318:9)
+#35     SchedulerBinding._handleDrawFrame (package:flutter/src/scheduler/binding.dart:1176:5)
+#36     _invoke (dart:ui/hooks.dart:312:13)
+#37     PlatformDispatcher._drawFrame (dart:ui/platform_dispatcher.dart:419:5)
+#38     _drawFrame (dart:ui/hooks.dart:283:31)
+
+The following RenderObject was being processed when the exception was fired: RenderFlex#2467f relayoutBoundary=up10 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+    parentData: offset=Offset(0.0, 0.0); flex=null; fit=null (can use size)
+    constraints: BoxConstraints(0.0<=w<=330.0, 0.0<=h<=Infinity)
+    size: MISSING
+    direction: vertical
+    mainAxisAlignment: start
+    mainAxisSize: max
+    crossAxisAlignment: start
+    textDirection: ltr
+    verticalDirection: down
+    child 1: RenderConstrainedBox#720d7 NEEDS-LAYOUT NEEDS-PAINT
+        parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+        constraints: MISSING
+        size: MISSING
+        additionalConstraints: BoxConstraints(0.0<=w<=Infinity, h=20.0)
+    child 2: RenderParagraph#87946 NEEDS-LAYOUT NEEDS-PAINT
+        parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+        constraints: MISSING
+        size: MISSING
+        textAlign: start
+        textDirection: ltr
+        softWrap: wrapping at box width
+        overflow: clip
+        textScaler: linear (1.1176470588235294x)
+        locale: en_US
+        maxLines: unlimited
+        text: TextSpan
+            debugLabel: ((englishLike bodyMedium 2021).merge((blackCupertino bodyMedium).apply)).merge(unknown)
+            inherit: false
+            color: Color(0xff1d1b20)
+            family: CupertinoSystemText
+            size: 24.0
+            weight: 600
+            letterSpacing: 0.3
+            baseline: alphabetic
+            height: 1.4x
+            leadingDistribution: even
+            decoration: Color(0xff1d1b20) TextDecoration.none
+            "Poplar Movies"
+    child 3: RenderConstrainedBox#b96b3 NEEDS-LAYOUT NEEDS-PAINT
+        parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+        constraints: MISSING
+        size: MISSING
+        additionalConstraints: BoxConstraints(0.0<=w<=Infinity, h=20.0)
+    child 4: _RenderScrollSemantics#138bb NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+        parentData: offset=Offset(0.0, 0.0); flex=1; fit=FlexFit.loose
+        constraints: MISSING
+        semantic boundary
+        size: MISSING
+        child: RenderPointerListener#82921 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+            parentData: <none>
+            constraints: MISSING
+            size: MISSING
+            behavior: deferToChild
+            listeners: signal
+            child: RenderSemanticsGestureHandler#88630 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+                parentData: <none>
+                constraints: MISSING
+                size: MISSING
+                behavior: opaque
+                gestures: <none>
+                child: RenderPointerListener#94a72 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+                    parentData: <none>
+                    constraints: MISSING
+                    size: MISSING
+                    behavior: opaque
+                    listeners: down, panZoomStart
+RenderObject: RenderFlex#2467f relayoutBoundary=up10 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+    parentData: offset=Offset(0.0, 0.0); flex=null; fit=null (can use size)
+    constraints: BoxConstraints(0.0<=w<=330.0, 0.0<=h<=Infinity)
+    size: MISSING
+    direction: vertical
+    mainAxisAlignment: start
+    mainAxisSize: max
+    crossAxisAlignment: start
+    textDirection: ltr
+    verticalDirection: down
+    child 1: RenderConstrainedBox#720d7 NEEDS-LAYOUT NEEDS-PAINT
+        parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+        constraints: MISSING
+        size: MISSING
+        additionalConstraints: BoxConstraints(0.0<=w<=Infinity, h=20.0)
+    child 2: RenderParagraph#87946 NEEDS-LAYOUT NEEDS-PAINT
+        parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+        constraints: MISSING
+        size: MISSING
+        textAlign: start
+        textDirection: ltr
+        softWrap: wrapping at box width
+        overflow: clip
+        textScaler: linear (1.1176470588235294x)
+        locale: en_US
+        maxLines: unlimited
+        text: TextSpan
+            debugLabel: ((englishLike bodyMedium 2021).merge((blackCupertino bodyMedium).apply)).merge(unknown)
+            inherit: false
+            color: Color(0xff1d1b20)
+            family: CupertinoSystemText
+            size: 24.0
+            weight: 600
+            letterSpacing: 0.3
+            baseline: alphabetic
+            height: 1.4x
+            leadingDistribution: even
+            decoration: Color(0xff1d1b20) TextDecoration.none
+            "Poplar Movies"
+    child 3: RenderConstrainedBox#b96b3 NEEDS-LAYOUT NEEDS-PAINT
+        parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+        constraints: MISSING
+        size: MISSING
+        additionalConstraints: BoxConstraints(0.0<=w<=Infinity, h=20.0)
+    child 4: _RenderScrollSemantics#138bb NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+        parentData: offset=Offset(0.0, 0.0); flex=1; fit=FlexFit.loose
+        constraints: MISSING
+        semantic boundary
+        size: MISSING
+        child: RenderPointerListener#82921 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+            parentData: <none>
+            constraints: MISSING
+            size: MISSING
+            behavior: deferToChild
+            listeners: signal
+            child: RenderSemanticsGestureHandler#88630 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+                parentData: <none>
+                constraints: MISSING
+                size: MISSING
+                behavior: opaque
+                gestures: <none>
+                child: RenderPointerListener#94a72 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+                    parentData: <none>
+                    constraints: MISSING
+                    size: MISSING
+                    behavior: opaque
+                    listeners: down, panZoomStart
+════════════════════════════════════════════════════════════════════════════════
+
+════════ Exception caught by rendering library ═════════════════════════════════
+RenderBox was not laid out: RenderFlex#2467f relayoutBoundary=up10 NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+'package:flutter/src/rendering/box.dart':
+Failed assertion: line 2164 pos 12: 'hasSize'
+The relevant error-causing widget was:
+    Column Column:file:///Users/eunjuseo/Documents/GitHub/movieflix2025/lib/screen/home_screen.dart:23:16
+════════════════════════════════════════════════════════════════════════════════
+
+════════ Exception caught by rendering library ═════════════════════════════════
+RenderBox was not laid out: RenderFlex#2467f relayoutBoundary=up10
+'package:flutter/src/rendering/box.dart':
+Failed assertion: line 2164 pos 12: 'hasSize'
+The relevant error-causing widget was:
+    Column Column:file:///Users/eunjuseo/Documents/GitHub/movieflix2025/lib/screen/home_screen.dart:23:16
+════════════════════════════════════════════════════════════════════════════════
+
+════════ Exception caught by scheduler library ═════════════════════════════════
+Updated layout information required for RenderConstrainedBox#720d7 NEEDS-LAYOUT NEEDS-PAINT to calculate semantics.
+'package:flutter/src/rendering/object.dart':
+Failed assertion: line 3720 pos 12: '!_needsLayout'
+════════════════════════════════════════════════════════════════════════════════
+Restarted application in 757ms.
+flutter: movieInstances length = 20
+flutter: movieInstances length = 20
